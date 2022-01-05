@@ -20,11 +20,11 @@ namespace TechJobsMVC.Controllers
         }
 
         // TODO #3: Create an action method to process a search request and render the updated search view. 
-      
+      [HttpPost]
         public IActionResult Results(string searchType, string searchTerm)
         {
 
-            // null check not working
+            
             List<Job> jobs;
             if (searchTerm == null || searchTerm.Equals(" "))
             { 
