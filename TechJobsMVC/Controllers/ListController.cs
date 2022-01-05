@@ -12,7 +12,7 @@ namespace TechJobsMVC.Controllers
 {
     public class ListController : Controller
     {
-        internal static Dictionary<string, string> ColumnChoices = new Dictionary<string, string>()
+        public static Dictionary<string, string> ColumnChoices = new Dictionary<string, string>()
         {
             {"all", "All"},
             {"employer", "Employer"},
@@ -20,7 +20,7 @@ namespace TechJobsMVC.Controllers
             {"positionType", "Position Type"},
             {"coreCompetency", "Skill"}
         };
-        internal static Dictionary<string, List<JobField>> TableChoices = new Dictionary<string, List<JobField>>()
+        public static Dictionary<string, List<JobField>> TableChoices = new Dictionary<string, List<JobField>>()
         {
             
             {"employer", JobData.GetAllEmployers()},
@@ -52,6 +52,7 @@ namespace TechJobsMVC.Controllers
             }
             else
             {
+
                 jobs = JobData.FindByColumnAndValue(column, value);
                 ViewBag.title = "Jobs with " + ColumnChoices[column] + ": " + value;
             }
