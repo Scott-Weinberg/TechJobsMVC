@@ -33,8 +33,8 @@ namespace TechJobsMVC.Data
             LoadData();
 
             List<Job> jobs = new List<Job>();
-
-            if (column.ToLower().Equals("all"))
+            //this broke threw exception when i search by keyword
+            if (value.ToLower().Equals("all"))
             {
                 return FindAll();
             }

@@ -30,19 +30,5 @@
         //TODO #4: Loop over the search results to display all job fields.
     //need to pass jobs into the search/index view via ViewBag.  pass ListController.ColumnChoices  into the view as the existing serach handler does
     }
-    <h2>@ViewBag.title_results</h2>
-    
-    @foreach(var job in ViewBag.jobs_results)
-            {
-          @* <table class="job-listing"> 
-              
-                <tr><th>Id: </th> <td>@job.Id</td></tr>
-                <tr><th>Name: </th> <td>@job.Name</td></tr>
-                <tr><th>Employer: </th><td>@job.Employer</td></tr>
-                <tr><th>Location:</th><td> @job.Location</td></tr>
-                <tr><th>Type:</th><td> @job.CoreCompetency</td></tr>
-                <tr><th>Skill:</th> <td>@job.PositionType</td></tr>
-               
-          </table>*@
-          }
+  
 </div>

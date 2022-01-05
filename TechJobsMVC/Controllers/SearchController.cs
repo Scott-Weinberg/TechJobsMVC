@@ -20,55 +20,37 @@ namespace TechJobsMVC.Controllers
         }
 
         // TODO #3: Create an action method to process a search request and render the updated search view. 
-      [HttpPost]
-        public IActionResult Results(string column, string searchTerm)
+      
+        public IActionResult Results(string searchType, string searchTerm)
         {
+
+            // null check not working
             List<Job> jobs;
-            if (searchTerm == null || searchTerm.Equals(""))
+            if (searchTerm == null || searchTerm.Equals(" "))
             { 
                 jobs = JobData.FindAll();
-                ViewBag.title_results = "All Jobs";
-               /* ViewBag.columns = ListController.ColumnChoices;*/
-                
-
-
-
-            }
-          
-            else
-            {
-                
-                jobs = JobData.FindByColumnAndValue(column, searchTerm );
-                ViewBag.title_results = "Jobs with " + columnChoices[column] + ": " + searchTerm;
-               /* ViewBag.columns = ListController.ColumnChoices;*/
+                ViewBag.titleResults = "Showing All Jobs:";
+                ViewBag.columns = ListController.ColumnChoices;
 
              }
+       
+            else
+            {
+               
+                jobs = JobData.FindByColumnAndValue(searchType, searchTerm );
+                ViewBag.titleResults = "Jobs with " + searchType + ": " + searchTerm;
+                ViewBag.columns = ListController.ColumnChoices;
+               
+
+            }
    
            
-            ViewBag.jobs_results = jobs;
+            ViewBag.jobsResults = jobs;
 
-            return View("index");
+            return View();
 
         }
-        /*  ViewBag.results = jobs;
-         public IActionResult Jobs(string column, string value)
-      {
-          List<Job> jobs;
-          if (column.ToLower().Equals("all"))
-          {
-              jobs = JobData.FindAll();
-              ViewBag.title = "All Jobs";
-          }
-          else
-          {
-              jobs = JobData.FindByColumnAndValue(column, value);
-              ViewBag.title = "Jobs with " + ColumnChoices[column] + ": " + value;
-          }
-          ViewBag.jobs = jobs;
-        ViewBag.columns = ListController.ColumnChoices;
-          return View();
-      }
-         */
+        
 
 
 
